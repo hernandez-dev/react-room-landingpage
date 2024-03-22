@@ -37,30 +37,30 @@ export default function Hero(props) {
             <div className="flex flex-col col-span-4">
               <div className="flex flex-1">
                 <div className="m-auto px-24">
-                  <h1 className="font-bold text-4xl text-gray-800">
+                  <h1 className="font-bold text-4xl text-very-dark-gray">
                     {sections[currentSection].heading}
                   </h1>
-                  <p className="mt-5 text-lg text-gray-500 leading-8">
+                  <p className="mt-5 text-lg text-dark-gray leading-8">
                     {sections[currentSection].description}
                   </p>
-                  <a href="#" className="inline-flex items-center mt-6 font-semibold uppercase tracking-[.5rem] leading-none">
+                  <a href="#" className="inline-flex items-center mt-6 font-semibold text-very-dark-gray uppercase tracking-[.5rem] leading-none">
                     shop now
                     <img src="/images/icon-arrow.svg" alt="link arrow" className="flex ml-4" />
                   </a>
                 </div>
               </div>
               <div className="grid grid-cols-4">
-                <div className="flex col-span-1">
+                <div className="flex col-span-1 bg-black">
                   <button
                     disabled={currentSection == 0}
-                    className="flex items-center justify-center h-[3.6rem] flex-1 bg-gray-700"
+                    className="flex items-center justify-center h-[3.6rem] flex-1 transition duration-100 hover:bg-very-dark-gray"
                     onClick={() => setCurrentSection(prev => prev - 1)}
                   >
                     <img src="/images/icon-angle-left.svg" alt="button icon left" />
                   </button>
                   <button
                     disabled={currentSection == (sections.length - 1)}
-                    className="flex items-center justify-center h-[3.6rem] flex-1 bg-gray-700"
+                    className="flex items-center justify-center h-[3.6rem] flex-1 transition duration-100 hover:bg-very-dark-gray"
                     onClick={() => setCurrentSection(prev => prev + 1)}
                   >
                     <img src="/images/icon-angle-right.svg" alt="button icon right" />

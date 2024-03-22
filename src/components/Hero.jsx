@@ -22,6 +22,9 @@ const sections = [
   }
 ]
 
+// components
+import Navigation from "./Navigation.jsx"
+
 // SlideButton
 function SlideButton({
   action,
@@ -40,7 +43,7 @@ function SlideButton({
   )
 }
 
-export default function Hero(props) {
+export default function Hero({ links }) {
   // currentSection
   const [currentSection, setCurrentSection] = useState(0)
 
@@ -49,8 +52,9 @@ export default function Hero(props) {
       {sections.map((section, index) => {
         return(
           <section key={section.id} className={currentSection == index ? "grid grid-cols-12" : "hidden"}>
-            <div className="col-span-8">
+            <div className="relative col-span-8">
               <img src={sections[currentSection].image} alt="hero section slide image" className="block w-full" />
+              <Navigation links={links} />
             </div>
             <div className="flex flex-col col-span-4">
               <div className="flex flex-1">

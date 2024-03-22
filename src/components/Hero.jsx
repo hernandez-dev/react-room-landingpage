@@ -10,14 +10,14 @@ const sections = [
   },
   {
     id: 2,
-    heading: "Discover innovative ways to decorate",
-    description: "We provide unmatched quality, comfort and style for property owners across the country. Our experts combine form and function in bringing yout vision to life. Create a room in yout own style with our collection and make your property a relection of you and what you love.",
+    heading: "We are available all across the globe",
+    description: "With stores all over the world, it's easy fot you to find futniture fot your home or place of bussines. Locally, we're in most major cities throughout the country. Find the branch nearest you using our store locator. Any question? Don't hesitate to contact us today.",
     image: "/images/desktop-image-hero-2.jpg"
   },
   {
     id: 3,
-    heading: "Discover innovative ways to decorate",
-    description: "We provide unmatched quality, comfort and style for property owners across the country. Our experts combine form and function in bringing yout vision to life. Create a room in yout own style with our collection and make your property a relection of you and what you love.",
+    heading: "Manufactured with the best materials",
+    description: "Our modern forniture store provide a high level of quality. Our company has invested in advanced technology to ensure that every product is made as perfect and as consistent as possible. With three decades of experience in this industry, we understand what customers want for their home and office.",
     image: "/images/desktop-image-hero-3.jpg"
   }
 ]

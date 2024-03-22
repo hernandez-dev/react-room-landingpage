@@ -22,6 +22,24 @@ const sections = [
   }
 ]
 
+// SlideButton
+function SlideButton({
+  action,
+  disabled,
+  setCurrentSection,
+  children
+}) {
+  return(
+    <button
+      disabled={disabled}
+      className="flex items-center justify-center h-[3.6rem] flex-1 transition duration-100 hover:bg-very-dark-gray"
+      onClick={() => action == "prev" ? setCurrentSection(prev => prev - 1) : setCurrentSection(prev => prev + 1)}
+    >
+      {children}
+    </button>
+  )
+}
+
 export default function Hero(props) {
   // currentSection
   const [currentSection, setCurrentSection] = useState(0)
@@ -51,20 +69,12 @@ export default function Hero(props) {
               </div>
               <div className="grid grid-cols-4">
                 <div className="flex col-span-1 bg-black">
-                  <button
-                    disabled={currentSection == 0}
-                    className="flex items-center justify-center h-[3.6rem] flex-1 transition duration-100 hover:bg-very-dark-gray"
-                    onClick={() => setCurrentSection(prev => prev - 1)}
-                  >
-                    <img src="/images/icon-angle-left.svg" alt="button icon left" />
-                  </button>
-                  <button
-                    disabled={currentSection == (sections.length - 1)}
-                    className="flex items-center justify-center h-[3.6rem] flex-1 transition duration-100 hover:bg-very-dark-gray"
-                    onClick={() => setCurrentSection(prev => prev + 1)}
-                  >
-                    <img src="/images/icon-angle-right.svg" alt="button icon right" />
-                  </button>
+                  <SlideButton action="prev" disabled={currentSection === 0} setCurrentSection={setCurrentSection}>
+                    <img src="/images/icon-angle-left.svg" alt="left angle icon" />
+                  </SlideButton>
+                  <SlideButton action="next" disabled={currentSection === (sections.length - 1)} setCurrentSection={setCurrentSection}>
+                    <img src="/images/icon-angle-right.svg" alt="right angle icon" />
+                  </SlideButton>
                 </div>
               </div>
             </div>

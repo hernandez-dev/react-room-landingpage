@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 // hero sections
 const sections = [
   {
@@ -5,26 +7,41 @@ const sections = [
     heading: "Discover innovative ways to decorate",
     description: "We provide unmatched quality, comfort and style for property owners across the country. Our experts combine form and function in bringing yout vision to life. Create a room in yout own style with our collection and make your property a relection of you and what you love.",
     image: "/images/desktop-image-hero-1.jpg"
+  },
+  {
+    id: 2,
+    heading: "Discover innovative ways to decorate",
+    description: "We provide unmatched quality, comfort and style for property owners across the country. Our experts combine form and function in bringing yout vision to life. Create a room in yout own style with our collection and make your property a relection of you and what you love.",
+    image: "/images/desktop-image-hero-2.jpg"
+  },
+  {
+    id: 3,
+    heading: "Discover innovative ways to decorate",
+    description: "We provide unmatched quality, comfort and style for property owners across the country. Our experts combine form and function in bringing yout vision to life. Create a room in yout own style with our collection and make your property a relection of you and what you love.",
+    image: "/images/desktop-image-hero-3.jpg"
   }
 ]
 
 export default function Hero(props) {
+  // currentSection
+  const [currentSection, setCurrentSection] = useState(0)
+
   return(
     <main className="">
-      {sections.map(section => {
+      {sections.map((section, index) => {
         return(
-          <section key={section.id} className="grid grid-cols-12">
+          <section key={section.id} className={currentSection == index ? "grid grid-cols-12" : "hidden"}>
             <div className="col-span-8">
-              <img src={section.image} alt="slide image" className="block w-full" />
+              <img src={sections[currentSection].image} alt="hero section slide image" className="block w-full" />
             </div>
             <div className="flex flex-col col-span-4">
               <div className="flex flex-1">
                 <div className="m-auto px-24">
                   <h1 className="font-bold text-4xl text-gray-800">
-                    {section.heading}
+                    {sections[currentSection].heading}
                   </h1>
                   <p className="mt-5 text-lg text-gray-500 leading-8">
-                    {section.description}
+                    {sections[currentSection].description}
                   </p>
                   <a href="#" className="inline-flex items-center mt-6 font-semibold uppercase tracking-[.5rem] leading-none">
                     shop now
@@ -34,10 +51,18 @@ export default function Hero(props) {
               </div>
               <div className="grid grid-cols-4">
                 <div className="flex col-span-1">
-                  <button className="flex items-center justify-center h-[3.6rem] flex-1 bg-gray-700">
+                  <button
+                    disabled={currentSection == 0}
+                    className="flex items-center justify-center h-[3.6rem] flex-1 bg-gray-700"
+                    onClick={() => setCurrentSection(prev => prev - 1)}
+                  >
                     <img src="/images/icon-angle-left.svg" alt="button icon left" />
                   </button>
-                  <button className="flex items-center justify-center h-[3.6rem] flex-1 bg-gray-700">
+                  <button
+                    disabled={currentSection == (sections.length - 1)}
+                    className="flex items-center justify-center h-[3.6rem] flex-1 bg-gray-700"
+                    onClick={() => setCurrentSection(prev => prev + 1)}
+                  >
                     <img src="/images/icon-angle-right.svg" alt="button icon right" />
                   </button>
                 </div>

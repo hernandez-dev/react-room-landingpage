@@ -9,6 +9,9 @@ export default {
       colors: {
         "dark-gray": "hsl(0, 0%, 63%)",
         "very-dark-gray": "hsl(0, 0%, 27%)"
+      },
+      fontFamily: {
+        custom: '"League Spartan", sans-serif'
       }
     },
   },

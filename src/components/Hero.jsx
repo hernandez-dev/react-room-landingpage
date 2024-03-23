@@ -46,45 +46,40 @@ function SlideButton({
 export default function Hero({ links }) {
   // currentSection
   const [currentSection, setCurrentSection] = useState(0)
+  const section = sections[currentSection]
 
   return(
-    <main className="">
-      {sections.map((section, index) => {
-        return(
-          <section key={section.id} className={currentSection == index ? "grid grid-cols-12" : "hidden"}>
-            <div className="relative col-span-8">
-              <img src={sections[currentSection].image} alt="hero section slide image" className="block w-full" />
-              <Navigation links={links} />
-            </div>
-            <div className="flex flex-col col-span-4">
-              <div className="flex flex-1">
-                <div className="m-auto px-24">
-                  <h1 className="font-bold text-4xl text-very-dark-gray">
-                    {sections[currentSection].heading}
-                  </h1>
-                  <p className="mt-5 text-lg text-dark-gray leading-8">
-                    {sections[currentSection].description}
-                  </p>
-                  <a href="#" className="inline-flex items-center mt-6 font-semibold text-very-dark-gray uppercase tracking-[.5rem] leading-none">
-                    shop now
-                    <img src="/images/icon-arrow.svg" alt="link arrow" className="flex ml-4" />
-                  </a>
-                </div>
-              </div>
-              <div className="grid grid-cols-4">
-                <div className="flex col-span-1 bg-black">
-                  <SlideButton action="prev" disabled={currentSection === 0} setCurrentSection={setCurrentSection}>
-                    <img src="/images/icon-angle-left.svg" alt="left angle icon" />
-                  </SlideButton>
-                  <SlideButton action="next" disabled={currentSection === (sections.length - 1)} setCurrentSection={setCurrentSection}>
-                    <img src="/images/icon-angle-right.svg" alt="right angle icon" />
-                  </SlideButton>
-                </div>
-              </div>
-            </div>
-          </section>
-        )
-      })}
+    <main className="grid grid-cols-12">
+      <div className="relative col-span-8">
+        <img src={section.image} alt="hero section slide image" className="block w-full" />
+        <Navigation links={links} />
+      </div>
+      <div className="flex flex-col col-span-4">
+        <div className="flex flex-1">
+          <div className="m-auto px-24">
+            <h1 className="font-bold text-4xl text-very-dark-gray">
+              {section.heading}
+            </h1>
+            <p className="mt-5 text-lg text-dark-gray leading-8">
+              {section.description}
+            </p>
+            <a href="#" className="inline-flex items-center mt-6 font-semibold text-very-dark-gray uppercase tracking-[.5rem] leading-none">
+              shop now
+              <img src="/images/icon-arrow.svg" alt="link arrow" className="flex ml-4" />
+            </a>
+          </div>
+        </div>
+        <div className="grid grid-cols-4">
+          <div className="flex col-span-1 bg-black">
+            <SlideButton action="prev" disabled={currentSection === 0} setCurrentSection={setCurrentSection}>
+              <img src="/images/icon-angle-left.svg" alt="left angle icon" />
+            </SlideButton>
+            <SlideButton action="next" disabled={currentSection === (sections.length - 1)} setCurrentSection={setCurrentSection}>
+              <img src="/images/icon-angle-right.svg" alt="right angle icon" />
+            </SlideButton>
+          </div>
+        </div>
+      </div>
     </main>
   )
 }

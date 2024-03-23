@@ -9,8 +9,11 @@ export default function Navigation({ links }) {
   const dispatch = useContext(DispatchContext)
 
   return(
-    <div className="absolute top-0 left-0 z-10 w-full flex items-center justify-between p-5 pt-10">
-      <button onClick={() => dispatch({ type: "show-mobile-navigation", value: true })} className="flex items-center justify-center w-10 h-10">
+    <div className="absolute top-0 left-0 z-10 w-full flex items-center justify-between p-5 pt-10 desktop:items-start desktop:justify-start">
+      <button
+        onClick={() => dispatch({ type: "show-mobile-navigation", value: true })}
+        className="flex items-center justify-center w-10 h-10 desktop:hidden"
+      >
         <img src="/images/menu-icon.svg" alt="menu button icon" />
       </button>
       <Link to="/" className="">

@@ -1,3 +1,7 @@
+// context
+import StateContext from "./context/StateContext.jsx"
+import DispatchContext from "./context/DispatchContext.jsx"
+
 // components
 import Hero from "./components/Hero.jsx"
 import About from "./components/About.jsx"
@@ -29,11 +33,13 @@ const links = [
 
 function App() {
   return (
-    <>
-      <Hero links={links} />
-      <About />
-      <MobileNavigation links={links} />
-    </>
+    <StateContext.Provider value={1}>
+      <DispatchContext.Provider value={1}>
+        <Hero links={links} />
+        <About />
+        <MobileNavigation links={links} />
+      </DispatchContext.Provider>
+    </StateContext.Provider>
   )
 }
 

@@ -1,6 +1,7 @@
 // components
 import Hero from "./components/Hero.jsx"
 import About from "./components/About.jsx"
+import MobileNavigation from "./components/MobileNavigation.jsx"
 
 // links
 const links = [
@@ -31,6 +32,7 @@ function App() {
     <>
       <Hero links={links} />
       <About />
+      <MobileNavigation links={links} />
     </>
   )
 }

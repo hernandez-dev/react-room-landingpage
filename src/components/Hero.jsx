@@ -57,7 +57,7 @@ export default function Hero({ links }) {
       <div className="flex flex-col col-span-4">
         <div className="flex flex-1">
           <div className="m-auto px-24">
-            <h1 className="font-bold text-4xl text-very-dark-gray">
+            <h1 className="font-bold text-5xl text-very-dark-gray">
               {section.heading}
             </h1>
             <p className="mt-5 text-lg text-dark-gray leading-8">

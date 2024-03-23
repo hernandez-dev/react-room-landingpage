@@ -12,6 +12,9 @@ export default {
       },
       fontFamily: {
         custom: '"League Spartan", sans-serif'
+      },
+      screens: {
+        desktop: "1600px"
       }
     },
   },

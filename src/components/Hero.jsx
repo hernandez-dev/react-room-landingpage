@@ -63,7 +63,7 @@ export default function Hero({ links }) {
             <p className="mt-5 text-lg text-dark-gray leading-8">
               {section.description}
             </p>
-            <a href="#" className="inline-flex items-center mt-6 font-semibold text-very-dark-gray uppercase tracking-[.5rem] leading-none">
+            <a href="#" className="outline-none inline-flex items-center mt-6 font-semibold text-very-dark-gray uppercase tracking-[.5rem] leading-none transition duration-100 hover:text-dark-gray focus:text-dark-gray">
               shop now
               <img src="/images/icon-arrow.svg" alt="link arrow" className="flex ml-4" />
             </a>

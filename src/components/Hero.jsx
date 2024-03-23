@@ -49,15 +49,15 @@ export default function Hero({ links }) {
   const section = sections[currentSection]
 
   return(
-    <main className="grid grid-cols-12">
+    <main className="desktop:grid desktop:grid-cols-12">
       <div className="relative col-span-8">
         <img src={section.image} alt="hero section slide image" className="block w-full" />
         <Navigation links={links} />
       </div>
-      <div className="flex flex-col col-span-4">
+      <div className="flex flex-col desktop:col-span-4">
         <div className="flex flex-1">
-          <div className="m-auto px-24">
-            <h1 className="font-bold text-5xl text-very-dark-gray">
+          <div className="m-auto px-10 py-14">
+            <h1 className="font-bold text-3xl text-very-dark-gray desktop:text-5xl">
               {section.heading}
             </h1>
             <p className="mt-5 text-lg text-dark-gray leading-8">

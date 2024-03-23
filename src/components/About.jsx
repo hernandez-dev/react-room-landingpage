@@ -1,10 +1,10 @@
 export default function About() {
   return(
-    <section className="grid grid-cols-12">
-      <div className="col-span-3">
+    <section className="desktop:grid desktop:grid-cols-12">
+      <div className="desktop:col-span-3">
         <img src="/images/image-about-dark.jpg" alt="about section image" className="block w-full" />
       </div>
-      <div className="flex col-span-6 px-14">
+      <div className="flex px-10 py-14 desktop:col-span-6">
         <div className="m-auto">
           <h2 className="font-bold text-very-dark-gray uppercase leading-none tracking-[.5rem]">
             about our furniture
@@ -14,7 +14,7 @@ export default function About() {
           </p>
         </div>
       </div>
-      <div className="col-span-3">
+      <div className="desktop:col-span-3">
         <img src="/images/image-about-light.jpg" alt="about section image" className="block w-full" />
       </div>
     </section>

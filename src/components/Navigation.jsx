@@ -23,8 +23,10 @@ export default function Navigation({ links }) {
         <ul className="flex ml-10 space-x-10">
           {links.map(link => {
             return(
-              <Link key={link.id} to={link.to} className="block pb-5 font-bold text-white leading-none">
+              <Link key={link.id} to={link.to} className="group relative relative block pb-2 font-bold text-white leading-none">
                 {link.name}
+                <span className="absolute bottom-0 left-1/2 z-1 -translate-x-1/2 hidden w-[60%] h-[2px] mx-auto bg-white group-hover:block">
+                </span>
               </Link>
             )
           })}

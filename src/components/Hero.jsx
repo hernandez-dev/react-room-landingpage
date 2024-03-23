@@ -35,7 +35,7 @@ function SlideButton({
   return(
     <button
       disabled={disabled}
-      className="flex items-center justify-center h-[3.6rem] flex-1 transition duration-100 hover:bg-very-dark-gray"
+      className="flex items-center justify-center h-[4.5rem] flex-1 transition duration-100 hover:bg-very-dark-gray"
       onClick={() => action == "prev" ? setCurrentSection(prev => prev - 1) : setCurrentSection(prev => prev + 1)}
     >
       {children}

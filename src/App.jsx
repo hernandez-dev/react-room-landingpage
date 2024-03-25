@@ -1,4 +1,6 @@
+import { useRef } from "react"
 import { useImmerReducer } from "use-immer"
+import { CSSTransition } from "react-transition-group"
 
 // context
 import StateContext from "./context/StateContext.jsx"
@@ -34,6 +36,9 @@ import MobileNavigation from "./components/MobileNavigation.jsx"
 ]*/
 
 function App() {
+  // references
+  const nodeRef = useRef(null)
+
   // initialState
   const initialState = {
     links: [
@@ -77,7 +82,15 @@ function App() {
       <DispatchContext.Provider value={dispatch}>
         <Hero links={state.links} />
         <About />
-        {state.showMobileNavigation ? <MobileNavigation links={state.links} /> : ""}
+        <CSSTransition
+          in={state.showMobileNavigation}
+          nodeRef={nodeRef}
+          timeout={300}
+          classNames="navigation"
+          unmountOnExit
+        >
+          <MobileNavigation nodeRef={nodeRef} links={state.links} />
+        </CSSTransition>
       </DispatchContext.Provider>
     </StateContext.Provider>
   )

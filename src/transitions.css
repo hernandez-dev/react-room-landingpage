@@ -1,0 +1,18 @@
+/* navigation */
+.navigation-enter {
+  opacity: 0;
+}
+
+.navigation-enter-active {
+  opacity: 1;
+  transition: opacity 300ms
+}
+
+.navigation-exit {
+  opacity: 1;
+}
+
+.navigation-exit-active {
+  opacity: 0;
+  transition: opacity 300ms
+}

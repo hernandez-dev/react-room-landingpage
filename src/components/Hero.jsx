@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 
 // hero sections
 const sections = [
@@ -27,6 +27,7 @@ import Navigation from "./Navigation.jsx"
 
 // SlideButton
 function SlideButton({
+  buttonRef,
   action,
   disabled,
   setCurrentSection,
@@ -34,6 +35,7 @@ function SlideButton({
 }) {
   return(
     <button
+      ref={buttonRef}
       disabled={disabled}
       className="flex items-center justify-center h-[4.5rem] flex-1 transition duration-100 hover:bg-very-dark-gray"
       onClick={() => action == "prev" ? setCurrentSection(prev => prev - 1) : setCurrentSection(prev => prev + 1)}
@@ -44,9 +46,31 @@ function SlideButton({
 }
 
 export default function Hero({ links }) {
+  // references
+  const prevButtonRef = useRef(null)
+  const nextButtonRef = useRef(null)
+
   // currentSection
   const [currentSection, setCurrentSection] = useState(0)
   const section = sections[currentSection]
+
+  // handleKeyup
+  function handleKeyup(e) {
+    const keyCode = e.keyCode
+    if (keyCode == 39) {
+      nextButtonRef.current.click()
+    } else if (keyCode == 37) {
+      prevButtonRef.current.click()
+    } else {
+      return
+    }
+  }
+
+  // mounted
+  useEffect(() => {
+    document.addEventListener("keyup", handleKeyup)
+    return () => document.removeEventListener("keyup", handleKeyup)
+  }, [])
 
   return(
     <main className="desktop:grid desktop:grid-cols-12">
@@ -71,10 +95,10 @@ export default function Hero({ links }) {
         </div>
         <div className="grid grid-cols-4">
           <div className="flex col-span-1 bg-black">
-            <SlideButton action="prev" disabled={currentSection === 0} setCurrentSection={setCurrentSection}>
+            <SlideButton buttonRef={prevButtonRef} action="prev" disabled={currentSection === 0} setCurrentSection={setCurrentSection}>
               <img src="/images/icon-angle-left.svg" alt="left angle icon" />
             </SlideButton>
-            <SlideButton action="next" disabled={currentSection === (sections.length - 1)} setCurrentSection={setCurrentSection}>
+            <SlideButton buttonRef={nextButtonRef} action="next" disabled={currentSection === (sections.length - 1)} setCurrentSection={setCurrentSection}>
               <img src="/images/icon-angle-right.svg" alt="right angle icon" />
             </SlideButton>
           </div>

@@ -37,7 +37,7 @@ function SlideButton({
     <button
       ref={buttonRef}
       disabled={disabled}
-      className="flex items-center justify-center h-[4.5rem] flex-1 transition duration-100 hover:bg-very-dark-gray"
+      className="flex items-center justify-center w-[4.5rem] h-[4.5rem] transition duration-100 hover:bg-very-dark-gray desktop:w-auto desktop:flex-1"
       onClick={() => action == "prev" ? setCurrentSection(prev => prev - 1) : setCurrentSection(prev => prev + 1)}
     >
       {children}
@@ -78,7 +78,7 @@ export default function Hero({ links }) {
         <img src={section.image} alt="hero section slide image" className="block w-full" />
         <Navigation links={links} />
       </div>
-      <div className="flex flex-col desktop:col-span-4">
+      <div className="relative flex flex-col desktop:col-span-4">
         <div className="flex flex-1">
           <div className="m-auto px-10 py-14">
             <h1 className="font-bold text-3xl text-very-dark-gray desktop:text-5xl">
@@ -93,7 +93,7 @@ export default function Hero({ links }) {
             </a>
           </div>
         </div>
-        <div className="grid grid-cols-4">
+        <div className="absolute top-0 right-0 -translate-y-full z-10 desktop:static desktop:-translate-y-0 desktop:grid desktop:grid-cols-4">
           <div className="flex col-span-1 bg-black">
             <SlideButton buttonRef={prevButtonRef} action="prev" disabled={currentSection === 0} setCurrentSection={setCurrentSection}>
               <img src="/images/icon-angle-left.svg" alt="left angle icon" />
